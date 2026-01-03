@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --heading-color: #171717;
 }
 
 @theme inline {
@@ -12,15 +13,164 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.dark {
+  --background: #000000;
+  --foreground: #ededed;
+  --heading-color: #ededed;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ededed;
+  --heading-color: #ededed;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
 }
+
+/* Prevent image dragging and selection */
+img,
+picture,
+svg,
+[role="img"] {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  pointer-events: auto;
+}
+
+/* Prevent context menu on images */
+img,
+picture,
+svg {
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide Next.js logo in bottom left */
+a[href*="nextjs"],
+a[href*="vercel"],
+a[href*="nextjs.org"],
+a[href*="vercel.com"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* Hide containers with Next.js links */
+body > div:has(> a[href*="nextjs"]),
+body > div:has(> a[href*="vercel"]) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hide fixed elements in bottom-left corner (likely Next.js indicator) */
+body > a[style*="position: fixed"][style*="bottom"][style*="left"],
+body > div[style*="position: fixed"][style*="bottom"][style*="left"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* SVG filter to convert gray to white while preserving other colors */
+svg#grayToWhiteFilter {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+svg#grayToWhiteFilter defs filter#grayToWhite {
+  color-interpolation-filters: sRGB;
+}
+
+.testimonials-container {
+  height: 660px; /* Exactly fits 2 cards (320px each) + gap (20px) */
+  overflow: hidden;
+  position: relative;
+}
+
+.testimonials-row-wrapper {
+  overflow: hidden;
+  margin-bottom: 20px;
+  height: 320px;
+}
+
+.testimonials-row {
+  width: fit-content;
+}
+
+.testimonial-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+@keyframes beam {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.beam-animation {
+  animation: beam 2s ease-out infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 60s linear infinite;
+}
+
+/* Masonry Grid Styles */
+.testimonial-row {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.testimonial-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.testimonial-card {
+  height: auto;
+  flex: 0 0 auto;
+}
+
