@@ -161,7 +161,8 @@ export default function Hero() {
                   height={96}
                   className="w-full h-full object-cover"
                   style={{ transform: 'scale(1.1) translateY(-4px)' }}
-                  unoptimized
+                  priority
+                  sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
                 />
               </div>
               
