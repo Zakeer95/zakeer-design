@@ -7,6 +7,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import MainCTA from "./MainCTA";
 import SecondaryCTA from "./SecondaryCTA";
 
+
 export default function Hero() {
   const logosRef = useRef<HTMLDivElement>(null);
   const [animationDistance, setAnimationDistance] = useState(0);
