@@ -34,10 +34,10 @@ export const metadata: Metadata = {
     description: "I design what businesses want to say into what users want to feel.",
     images: [
       {
-        url: "/zakeer-square.jpg",
-        width: 1200,
-        height: 1200,
-        alt: "Zakeer Sadikeen",
+        url: "/OG-graph.png",
+        width: 1280,
+        height: 720,
+        alt: "Zakeer Sadikeen - UI/UX Designer",
       },
     ],
   },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Zakeer Sadikeen - UI/UX Designer",
     description: "I design what businesses want to say into what users want to feel.",
-    images: ["/zakeer-square.jpg"],
+    images: ["/OG-graph.png"],
   },
   robots: {
     index: true,
