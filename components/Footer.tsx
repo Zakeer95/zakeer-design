@@ -64,14 +64,37 @@ export default function Footer() {
           {/* Divider - Full Width Row */}
           <div className="w-full h-px bg-zinc-500/50"></div>
 
-          {/* Bottom Row - Email */}
-          <div className="flex justify-end">
+          {/* Bottom Row - Email and Privacy Policy */}
+          <div className="flex justify-between items-center">
             <a 
               href="mailto:zakeermohomed95@gmail.com" 
               className="text-sm sm:text-base text-white hover:text-zinc-300 transition-colors flex items-center gap-1.5"
               style={{ letterSpacing: '-0.3px' }}
             >
               <span>zakeermohomed95@gmail.com</span>
+              <svg 
+                width="12" 
+                height="12" 
+                viewBox="0 0 12 12" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                className="flex-shrink-0"
+              >
+                <path 
+                  d="M2.5 2.5H9.5V9.5M9.5 2.5L2.5 9.5" 
+                  stroke="currentColor" 
+                  strokeWidth="1.2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+            <a 
+              href="/privacy" 
+              className="text-sm sm:text-base text-zinc-400 hover:text-zinc-200 transition-colors flex items-center gap-1.5"
+              style={{ letterSpacing: '-0.3px' }}
+            >
+              <span>Privacy Policy</span>
               <svg 
                 width="12" 
                 height="12" 
